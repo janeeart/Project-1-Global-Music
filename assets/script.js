@@ -1,5 +1,11 @@
 var input = document.querySelector(".input");
 var button = document.querySelector(".button");
+var bioEl = document.querySelector(".bio");
+var genreEl = document.querySelector(".genre");
+var countryEl = document.querySelector(".country");
+var eventAmountEl = document.querySelector(".eventAmount");
+var eventUrlEl = document.querySelector(".eventUrl");
+var artistLogo = document.querySelector(".logo");
 
 
 function handleSearchFormSubmit (event) {
@@ -75,7 +81,9 @@ function printArtistResults (artistResults){
     var artistName = document.querySelector('.title');
     artistResults.artists ? artistName.innerText = artistResults.artists[0].strArtist : artistName.innerText = "No";
     var artistPicture = document.querySelector('.artist-pic');
-    artistResults.artists ? artistPicture.src = artistResults.artists[0].strArtistThumb : artistPicture.src = "Nothing found";
+    artistPicture.src = artistResults.artists[0].strArtistThumb;
+    var artistCountry = document.querySelector('.country');
+    artistCountry.innerText = artistResults.artists[0].strCountry;
 //inner html for image
 }
 
