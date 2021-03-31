@@ -57,7 +57,7 @@ function getArtistEvent(search) {
 return response.json()
 })
     .then(function (eventResults){
-        // printEventResults(eventResults);
+        printEventResults(eventResults);
         var resultArr = eventResults._embedded.attractions
         console.log(resultArr)
         //this is best bet if you want some sort of filtering happening
@@ -75,7 +75,7 @@ function printArtistResults (artistResults){
     var artistName = document.querySelector('.title');
     artistResults.artists ? artistName.innerText = artistResults.artists[0].strArtist : artistName.innerText = "No";
     var artistPicture = document.querySelector('.artist-pic');
-    artistPicture.src = artistResults.artists[0].strArtistThumb;
+    artistResults.artists ? artistPicture.src = artistResults.artists[0].strArtistThumb : artistPicture.src = "Nothing found";
 //inner html for image
 }
 
@@ -84,3 +84,13 @@ function printEventResults (eventResults){
 	}	
 
 	button.addEventListener('click', handleSearchFormSubmit);
+
+    
+    
+//     var artistModal = document.querySelector('.modal')
+//     function artistModal () {
+     
+// artistResults.artists ? artistName.innerText = artistResults.artists[0].strArtist : document.querySelector('.modal', 'is-active');
+//     }
+
+    //function eventModal
