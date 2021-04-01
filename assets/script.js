@@ -1,5 +1,48 @@
 var input = document.querySelector(".input");
-var button = document.querySelector(".button");
+//needed to change class of button to an id because of the 'recent seach' button
+var button = document.querySelector("#searchButton");
+
+//Eric working on recent search modal loop and function
+    for (var i = 0; i < localStorage.length; i++) {
+        var recentSearchArr = JSON.parse(localStorage.getItem(i)) ;
+        var artistName = $(".list-group").addClass("list-group-item");
+        artistName.append("<li>" + recentSearchArr + "</li>");
+      }
+    
+var recentButton = document.getElementById("recent-search");
+var modal = document.getElementById("recent-search");
+
+recentButton.onclick = function() {
+    modal.style.display = 'block';
+}
+
+function recentSearch(event) {
+    event.preventDefault();
+
+    var btnGroup = document.querySelector('#search-modal');
+    recentSearchArr.reverse().
+
+
+    
+    forEach(function(search){
+        var artistBtn = document.createElement('<a>');
+        artistBtn.document.addclass('button')
+        artistBtn.textContent = search;
+        artistBtn.classList.add('btn');
+        btnGroup.append(artistBtn);
+    })
+}
+
+function getParams(query){
+    console.log(query)
+
+    if (recentSearchArr.length <=4) {
+        recentSearchArr.push(query);
+        localStorage.setItem(i, JSONstringify(searchHistoryArr));
+    }
+    getArtistInfo(query)
+}
+//^^^Eric's modal function^^^
 
 
 function handleSearchFormSubmit (event) {
@@ -9,7 +52,8 @@ console.log('works');
 var searchInputVal = document.querySelector('.input').value;
 
     if (!searchInputVal) {
-        window.alert('Please enter an Artist to search for.')
+        modal.style.display = 'block';
+        //window.alert('Please enter an Artist to search for.')
     }
 
     getParams()
@@ -83,4 +127,6 @@ function printEventResults (eventResults){
     console.log(eventResults);
 	}	
 
+
 	button.addEventListener('click', handleSearchFormSubmit);
+
