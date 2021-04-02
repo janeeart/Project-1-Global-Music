@@ -11,9 +11,7 @@ var artistLogo = document.querySelector(".logo");
 var recentSearchArr = JSON.parse(localStorage.getItem('previousSearches')) || [];
 
 //Eric working on recent search modal loop and function
-
 var recentSearchModal = document.getElementById("search-modal");
-
 var recentButton = document.getElementById("recent-search").addEventListener("click", function(){
     recentSearchModal.setAttribute("class", "modal is-active")
 })
@@ -21,21 +19,31 @@ var recentButton = document.getElementById("recent-search").addEventListener("cl
 var exitSeachModal = document.querySelector(".modal-close").addEventListener("click", function () {
     recentSearchModal.setAttribute("class", "modal hide");
   });
+  
 
-//recentButton.addEventListener("click", function(){
-  //recentSearchModal.querySelector("class", "modal is-active");
-//};
 
+  var buttonGroup = document.querySelector(".row");
+  for (let i = 0; i < recentSearchArr.length; i++) {
+    var artistBtn = recentSearchArr[i];
+    var artistButton = document.createElement("ul");
+    artistButton.textContent = `${artistBtn}`;
+    buttonGroup.append(artistButton);
+
+  }
+
+/*
 function generateBtns() {
-  var buttonGroup = document.querySelector("#search-modal");
- 
-  recentSearchArr.reverse().forEeach(function (artist) {
-    var artistBtn = document.createElement("<button>");
-    artistBtn.textContent = artist;
+  var buttonGroup = document.querySelector("row");
+  recentSearchArr.reverse().forEeach(function (search) {
+    var artistBtn = document.createElement("ul");
+    artistBtn.textContent = recentSearchArr[];
     artistBtn.addEventListener("click", handleRecentSearchFormSubmit);
     buttonGroup.append(artistBtn);
   });
 }
+*/
+
+
 
 /*function getParams(search) {
   console.log(search);
@@ -65,8 +73,6 @@ function handleSearchFormSubmit(event) {
   var searchInputVal = document.querySelector(".input").value;
 
   if (!searchInputVal) {
-    modal.style.display = "block";
-    //window.alert('Please enter an Artist to search for.')
   }
 
   getParams();
@@ -76,11 +82,12 @@ function getParams(search) {
   var search = input.value;
   console.log(search);
 
+////Eric added if statement for localStorage
   if (recentSearchArr.length <= 10) {
     recentSearchArr.push(search);
     localStorage.setItem('previousSearches', JSON.stringify(recentSearchArr));
   }
-
+//Eric added if statement for localStorage ^^^^
   getArtistInfo(search);
   getArtistEvent(search);
 }
@@ -92,7 +99,6 @@ function getArtistInfo(search) {
     .then(function (response) {
       console.log(response.ok);
       if (!response.ok) {
-        window.alert("Unable to connect");
         throw response.json();
       }
 
