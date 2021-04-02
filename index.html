@@ -52,37 +52,46 @@
                 <p class="title">
                     Title
                 </p>
+
+                <img class="artist-pic">
+
+                <p class="country"></p>
             </div>
         </div>
     </section>
 
-    <div class="card">
-        <div class="card-image">
-            <figure class="image is-128x128">
-                <img class="artist-pic">
-            </figure>
-        </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-left">
-                    <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                </div>
-            </div>
+    <section id="eventList">
 
-            <div class="country">
-                <p>asdfgh</p>
-            </div>
-        </div>
+    </section>
+    
+    <!-- <button id="test">Show Modal</button> -->
+    <div id="infoModal" class="modal hide">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+        Please check the spelling of the artist's name. Special characters not accepted. 
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
     </div>
+  </section>
+
+</section>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/script.js"></script>
+
+<!-- <button id="test">Show Modal</button> -->
+<div id="noSearchModal" class="modal hide">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+    Please enter an artist to search for. 
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/script.js"></script>
 </body>
 
 </html>
