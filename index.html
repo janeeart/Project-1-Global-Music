@@ -1,88 +1,106 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
-    <title>Music Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Music Website</title>
 </head>
 
 <body>
-    <section class="hero is-primary is-medium">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <span class="navbar-burger" data-target="navbarMenuHeroA">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item is-active">
-                                Home
-                            </a>
-                            <a class="navbar-item">
-                                Recent Searches
-                            </a>
-                            <div class="field has-addons">
-                                <form class="control">
-                                    <input class="input" type="text" placeholder="Search for">
-                                </form>
-                                <div class="control">
-                                    <button id="searchbutton" class="button is-info">
-                                        Search
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <section class="hero is-primary is-medium">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <header class="navbar-item">
+              <style>
+                @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+              </style>
+              <h1>Artist Master</h1>
+            </header>
+            <span class="navbar-burger" data-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item">
+                Home
+              </a>
+              <a class="navbar-item">
+                Recent Searches
+              </a>
+              <div class="field has-addons">
+                <form class="control">
+                  <input class="input" type="text" placeholder="Search for">
+                </form>
+                <div class="control">
+                  <button id="searchbutton" class="button is-info">
+                    Search
+                  </button>
                 </div>
-            </nav>
-        </div>
-
-        <!-- Hero content: will be in the middle -->
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <p class="title">
-                    Title
-                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-
-    <div class="card">
-        <div class="card-image">
-            <figure class="image is-128x128">
-                <img class="artist-pic">
-            </figure>
-        </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-left">
-                    <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                </div>
-            </div>
-
-            <div class="country">
-                <p>asdfgh</p>
-            </div>
-        </div>
+      </nav>
     </div>
 
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h2>Search your favorite artists!</h2>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/script.js"></script>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-128x128">
+        <img class="artist-pic">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img class="logo">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="country">
+        </div>
+      </div>
+      <div class="card">
+        <div class="bio">
+        </div>
+      </div>
+      <div class="card">
+        <div class="genre">
+        </div>
+      </div>
+      <div class="card">
+        <div class="eventAmount">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 
 </html>
