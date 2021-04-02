@@ -1,53 +1,88 @@
 var input = document.querySelector(".input");
-var button = document.querySelector(".button");
+//needed to change class of button to an id because of the 'recent seach' button
+var button = document.querySelector("#searchButton");
 var bioEl = document.querySelector(".bio");
 var genreEl = document.querySelector(".genre");
 var countryEl = document.querySelector(".country");
 var eventAmountEl = document.querySelector(".eventAmount");
 var eventUrlEl = document.querySelector(".eventUrl");
 var artistLogo = document.querySelector(".logo");
+var recentSearchArr = JSON.parse(localStorage.getItem('previousSearches')) || [];
 
-// PORTION OF THE SCRIPT THAT CONTROLS THE MODALS 
+//Eric working on recent search modal loop and function
+var recentSearchModal = document.getElementById("search-modal");
+var recentButton = document.getElementById("recent-search").addEventListener("click", function(){
+    recentSearchModal.setAttribute("class", "modal is-active")
+})
 
+var exitSeachModal = document.querySelector(".modal-close").addEventListener("click", function () {
+    recentSearchModal.setAttribute("class", "modal hide");
+  });
+
+//Janee no search result modal
 var modal = document.getElementById("infoModal");
-    
-// var showModal = document.getElementById("test").addEventListener("click", function(){
-//     modal.setAttribute("class", "modal is-active")
-// })
       
-var exitModal = document.querySelector(".modal-close").addEventListener("click", function(){
+var exitModal = document.querySelector(".no-search-modal").addEventListener("click", function(){
     modal.setAttribute("class", "modal hide")
 })
 
-function handleSearchFormSubmit (event) {
-	event.preventDefault();
-console.log('works');
 
-var searchInputVal = document.querySelector('.input').value;
+var exitNoArtistModal = document.querySelector(".modal-close").addEventListener("click", function(){
+    noSearchModal.setAttribute("class", "modal hide")
+})
 
-var noArtistSearched = document.getElementById('noSearchModal');
+  var buttonGroup = document.querySelector(".row");
+  for (let i = 0; i < recentSearchArr.length; i++) {
+    var artistBtn = recentSearchArr[i];
+    var artistButton = document.createElement("ul");
+    artistButton.textContent = `${artistBtn}`;
+    buttonGroup.append(artistButton);
+
+  }
+
+function handleRecentSearchFormSubmit(event) {
+  event.preventDefault();
+  console.log("works");
+
+  var searchInputVal = this.textContent;
+
+  getParams(searchInputVal);
+}
+
+//^^^Eric's modal function^^^
+
+
+function handleSearchFormSubmit(event) {
+    event.preventDefault();
+    console.log('works');
+
+    var searchInputVal = document.querySelector('.input').value;
+
+		var noArtistSearched = document.getElementById('noSearchModal');
 
     if (!searchInputVal) {
         
         // window.alert('Please enter an Artist to search for.')
         noArtistSearched.setAttribute("class", "modal is-active");
-    }
+    } 
 
     getParams()
-
-    
 }
 
-var exitNoArtistModal = document.querySelector(".modal-close").addEventListener("click", function(){
+var exitNoArtistModal = document.querySelector(".no-search-modal-close").addEventListener("click", function(){
     noSearchModal.setAttribute("class", "modal hide")
 })
-    
 
-
-
-function getParams (search){
+function getParams(search) {
     var search = input.value;
     console.log(search);
+  
+  ////Eric added if statement for localStorage
+  if (recentSearchArr.length <= 20) {
+    recentSearchArr.push(search);
+    localStorage.setItem('previousSearches', JSON.stringify(recentSearchArr));
+  }
+//Eric added if statement for localStorage ^^^^
 
     getArtistInfo(search);
     getArtistEvent(search);
@@ -58,18 +93,18 @@ function getArtistInfo(search) {
     var apiArtist = "https://theaudiodb.com/api/v1/json/1/search.php?s=" + (search);
 
     fetch(apiArtist)
-    .then(function (response) {
-    console.log(response.ok);
-    if (!response.ok) {
-        window.alert('Unable to connect');
-        throw response.json();
-}
+        .then(function (response) {
+            console.log(response.ok);
+            if (!response.ok) {
+                window.alert('Unable to connect');
+                throw response.json();
+            }
 
-return response.json()
-})
-    .then(function (artistResults){
-        printArtistResults(artistResults);
-    })
+            return response.json()
+        })
+        .then(function (artistResults) {
+            printArtistResults(artistResults);
+        })
 
 }
 
@@ -77,14 +112,14 @@ function getArtistEvent(search) {
     var apiEvents = "https://app.ticketmaster.com/discovery/v2/attractions.json?" + "keyword=" + (search) + "&apikey=" + "5pHWUAmDnwF3nJzxzlERJBtBG2o4Rl4q";
 
     fetch(apiEvents)
-    .then(function (response) {
-    console.log(response.ok);
-    if (!response.ok) {
-        window.alert('Unable to connect');
-        throw response.json();
-}
+        .then(function (response) {
+            console.log(response.ok);
+            if (!response.ok) {
+                window.alert('Unable to connect');
+                throw response.json();
+            }
 
-return response.json()
+    return response.json()
 })
     .then(function (eventResults){
         var resultArr = eventResults._embedded.attractions
@@ -98,17 +133,25 @@ return response.json()
         // console.log(filteredArr)
     })
 
+
 }
 
-function printArtistResults (artistResults){
-    // console.log(artistResults);
+function printArtistResults(artistResults) {
+    console.log(artistResults);
     var artistName = document.querySelector('.title');
     artistResults.artists ? artistName.innerText = artistResults.artists[0].strArtist : modal.setAttribute("class", "modal is-active");
     var artistPicture = document.querySelector('.artist-pic');
     artistPicture.src = artistResults.artists[0].strArtistThumb;
     var artistCountry = document.querySelector('.country');
     artistCountry.innerText = artistResults.artists[0].strCountry;
-//inner html for image
+    var artistLogo = document.querySelector('.logo');
+    artistLogo.src = artistResults.artists[0].strArtistLogo;
+    var artistBio = document.querySelector('.bio');
+    artistBio.innerText = artistResults.artists[0].strBiographyEN;
+    var artistGenre = document.querySelector('.genre');
+    artistGenre.innerText = artistResults.artists[0].strGenre;
+
+    //inner html for image
 }
 
 function printEventResults (eventResults){
@@ -140,8 +183,4 @@ function printEventResults (eventResults){
     }
 	}	
 
-	
 button.addEventListener('click', handleSearchFormSubmit);
-
-    
-    
