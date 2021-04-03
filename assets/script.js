@@ -48,7 +48,7 @@ function handleRecentSearchFormSubmit(event) {
     var searchInputVal = this.textContent;
     console.log(searchInputVal);
 
-    getParams(searchInputVal);
+    getParamsRecentSearches(searchInputVal);
 }
 
 //^^^Eric's modal function^^^
@@ -78,6 +78,18 @@ function handleSearchFormSubmit(event) {
 var exitNoArtistModal = document.querySelector(".no-search-modal-close").addEventListener("click", function(){
     noSearchModal.setAttribute("class", "modal hide")
 })
+
+function getParamsRecentSearches(search) {
+
+    if (recentSearchArr.length <= 10) {
+    recentSearchArr.push(search);
+    localStorage.setItem('previousSearches', JSON.stringify(recentSearchArr));
+    }
+
+    getArtistInfo(search);
+    getArtistEvent(search);
+}
+
 
 function getParams(search) {
     var search = input.value;
