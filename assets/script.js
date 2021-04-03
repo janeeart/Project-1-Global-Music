@@ -36,6 +36,7 @@ var exitNoArtistModal = document.querySelector(".modal-close").addEventListener(
     for (let i = 0; i < recentSearchArr.length; i++) {
     var artistBtn = recentSearchArr[i];
     var artistButton = document.createElement("button");
+    artistButton.setAttribute("class", "artist-button");
     artistButton.textContent = `${artistBtn}`;
     artistButton.addEventListener('click', handleRecentSearchFormSubmit);
     buttonGroup.append(artistButton);
@@ -191,7 +192,7 @@ function printEventResults (eventResults){
         newMainMedia.append(newMediaL)
         newMainMedia.append(newMediaC)
         //creating country
-        var newLink = $('<a>').attr('href', eventResults[i].url).text("Follow Me")
+        var newLink = $('<a>').attr('href', eventResults[i].url).text("Click here")
         var newP = $('<p>').text(`Tickets available at: `).append(newLink)
         var newContent = $('<div>').attr("class", "content").append(newP)
         //almost there
