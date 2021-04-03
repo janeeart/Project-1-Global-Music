@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
-  <link rel="stylesheet" href="assets/styles.scss">
+  <!-- <link rel="stylesheet" href="assets/styles.scss"> -->
   <link rel="stylesheet" href="assets/style.css">
   <title>Music Website</title>
 </head>
@@ -23,43 +23,32 @@
               </style>
               <h1>Artist Master</h1>
             </header>
-            <span class="navbar-burger" data-target="navbarMenuHeroA">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
           </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <!-- Eric adding button for the recent search ... -->
-              <button id="recent-search" class="button has-background-white">
-                Recent Search
-              </button>
-              <!--- might have to change class names -->
-              <div id="search-modal" class="modal hide">
-              <!---Zach added 'has-background-info-dark to class'-->
-              <!--This edit is whats needed to change bulma-->
-                <div class="modal-background has-background-black"></div>
-                <div class="modal-content has-text-primary-light">
-                  <!--appending localStorage into class row -->
-                  <div class="row"></div>
-                </div>
-                <button class="modal-close is-large" aria-label="close"></button>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <button id="recent-search" class="button has-background-white">
+              Recent Searches
+            </button>
+            <div id="search-modal" class="modal hide">
+              <div class="modal-background has-background-black"></div>
+              <div class="modal-content has-text-primary-light">
+                <div class="row"></div>
               </div>
-
-              <!-- Eric adding modal for recent search... -->
-              <div class="field has-addons">
-                <form class="control">
-                  <input class="input" type="text" placeholder="Search for">
-                </form>
-                <div class="control">
-                  <button id="searchbutton" class="button has-background-white">
-                    Search
-                  </button>
-                </div>
+              <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+            <div class="field has-addons">
+              <form class="control">
+                <input class="input" type="text" placeholder="Artist goes here">
+              </form>
+              <div class="control">
+                <!-- attempting to make the button a submit to allow hitting enter -->
+                <button type="submit" form="control" id="searchbutton" class="button has-background-white">
+                  Search
+                </button>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </nav>
     </div>
@@ -73,7 +62,7 @@
         <!--Zach added "is-flex is-horizontal-center" using bulma/css-->
         <!--"is-horizontal-center" is working from CSS, check line 11-->
         <div class="media is-flex is-horizontal-center">
-          <figure class="image is-large ">
+          <figure class="image is-large">
             <img class="logo">
           </figure>
         </div>
@@ -82,13 +71,17 @@
     </div>
   </section>
 
-  <div class="card">
+  <div>
+    <img src="assets/images/concert.jpg" alt="concert" id="background-picture">
+  </div>
+
+  <div class="card content-hide">
     <div class="card-image">
-      <figure class="image is-128x128">
+      <figure class="image is-128x128 content-hide">
         <img class="artist-pic">
       </figure>
     </div>
-    <div class="media-content message-header">
+    <div class="media-content message-header content-hide">
       <p class="title has-text-white-bis">
     </div>
   </div>
@@ -114,12 +107,14 @@
 
   </section>
 
+
+
   <div id="infoModal" class="modal hide">
     <!--Zach added "has-background" & "has-text" as Bulma styling-->
     <div class="modal-background has-background-black"></div>
     <div class="modal-content has-text-primary-light">
       <!-- Any other Bulma elements you want -->
-      Please check the spelling of the artist's name. Special characters not accepted.
+      We could not find the artist you were looking for.
     </div>
     <button class="modal-close is-large no-search-modal" aria-label="close"></button>
   </div>

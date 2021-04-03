@@ -3,6 +3,15 @@ header {
     font-size: 70px;
 }
 
+div img {
+    width: 100%;
+}
+
+.navbar-end {
+    padding: 1.7%;
+    padding-top: 4%;
+}
+
 .card {
     display: flex;
     justify-content: center;
@@ -10,7 +19,7 @@ header {
 }
 
 .is-horizontal-center {
-  justify-content: center;
+    justify-content: center;
 }
 
 h2 {
@@ -50,4 +59,8 @@ h3 {
     margin: 0 auto;
     padding: 20px;
     background-color:black;
+}
+
+.content-hide {
+    display: none;
 }
