@@ -2,20 +2,20 @@
 
 ---
 
-title: Project 1 Global Music
+Title: Project 1 Global Music
 
-description: Artist Master Music Search Engine
+Description: Artist Master Music Search Engine
 
-author: Janee Artis, Eric Dodgion, Zachary Gibbs, Jacob Studer
+Authors: Janée Artis, Eric Dodgion, Zachary Gibbs, Jacob Studer
 
-created:  2021 Mar 23
+Created:  2021 Mar 23
 
-modified: 2021 Apr 3
+Modified: 2021 Aug 10
 
 ---
 
 ## Summary
-This is a web based application for searching for an artist's bio and upcoming events.
+This is a web based application for searching for a music artist's biography and upcoming events.
 
 ## User Story
 
@@ -33,4 +33,10 @@ Ticketmaster
 
 ## Links
 https://github.com/edodgion/Project-1-Global-Music
+
 https://edodgion.github.io/Project-1-Global-Music/
+
+
+![edodgion github io_Project-1-Global-Music_](https://user-images.githubusercontent.com/78391244/128947336-43080531-44f6-403d-be79-01fc6d339ff3.png)
+
+![edodgion github io_Project-1-Global-Music_ (2)](https://user-images.githubusercontent.com/78391244/128947319-efff8418-4354-4884-b28f-727e9dcee921.png)
