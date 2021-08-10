@@ -1,10 +1,10 @@
-# Project-1-Global-Music
+# Artist Master
 
 ---
 
-Title: Project 1 Global Music
+Title: Artist Master 
 
-Description: Artist Master Music Search Engine
+Description:  Music Artist Search Engine
 
 Authors: Janée Artis, Eric Dodgion, Zachary Gibbs, Jacob Studer
 
