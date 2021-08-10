@@ -4,7 +4,7 @@
 
 Title: Artist Master 
 
-Description:  Music Artist Search Engine
+Description: Music Artist Search Engine
 
 Authors: Janée Artis, Eric Dodgion, Zachary Gibbs, Jacob Studer
 
@@ -27,13 +27,12 @@ SO THAT I can stay informed about their biography and projects.
 ```
 
 ## API's
-APIs to used 
-Audio DB
-Ticketmaster 
+Audio DB & Ticketmaster 
 
-## Links
-https://github.com/edodgion/Project-1-Global-Music
+## GitHub Repo Link
+https://github.com/janeeart/Project-1-Global-Music
 
+## Deployed App Link
 https://edodgion.github.io/Project-1-Global-Music/
 
 
